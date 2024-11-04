@@ -1,0 +1,44 @@
+
+Books=[ {"name":"sam","cost":900},
+        {"name":"sam","cost":500},
+        {"name":"ssc","cost":980},
+        {"name":"ghu","cost":250},
+        {"name":"ghu","cost":250},
+        {"name":"pqr","cost":250},
+        {"name":"abc","cost":500},
+    ]
+        
+for i in Books:
+    print(f"Name: {i['name']},  Cost: {i['cost']}")
+    
+print("\n -----duplication fillter-----\n")
+unique_bk=[]
+temp=set()
+
+for i in Books:
+    # Convert the dictionary to a tuple of items so it can be added to a set
+    book_tuple=tuple(i.items())
+    if book_tuple not in temp:
+        temp.add(book_tuple)
+        unique_bk.append(i)
+        
+#print(unique_bk)        
+for i in unique_bk:
+    print(f"Name: {i['name']},  Cost: {i['cost']}")
+    
+print("\n -----sorted list-----\n")
+sorted_books=sorted(unique_bk,key=lambda x: x['cost'])
+
+for i in sorted_books:
+    print(f"Name: {i['name']},  Cost: {i['cost']}")
+    
+print("\n -----no. of books having cost 500-----\n")    
+count=0;
+for i in Books:
+    if(i["cost"]==500):
+        count+=1
+        
+print("no. of books having cost 500 is :",count)   
+
+
+
